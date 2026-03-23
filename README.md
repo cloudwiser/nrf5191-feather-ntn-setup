@@ -148,7 +148,7 @@ AT+CGMR
 ## 10. Acquire GNSS Fix
 
 > **Important:** GNSS must be acquired *before* switching to NTN system mode. Run this sequence first if you want a live GPS fix rather than manually entering coordinates.
-> **Note:** you'll need an external antenna but that will be required for the NTN modem anyway - see later
+> **Note:** you'll need an external antenna but that will be required for the NTN modem anyway as per above
 
 ```text
 AT+CFUN=4

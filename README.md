@@ -201,6 +201,9 @@ AT+CFUN=1
 +CEREG: 5,"<tac>","<ci>",14,,,"11100000","00111000"
 ```
 
+> The duration for the attach and registration following the ```AT+CFUN=1``` command can be highly variable given the nature of the signalling path from the UE to the RAN via GEO to the (cloud-hosted) EPC/5G Core...and back
+> FWIW I have observed typical durations of between 50 and 60 secs for this sequence using monogoto aka Skylo aka Viasat-Inmarsat in Northern Europe via I4F4 (Alphasat)
+
 ---
 
 ## 12. Monitor Connection Status
@@ -216,8 +219,6 @@ AT%XMONITOR
 
 ## 13. Send UDP Test Payload
 
-> If you are using Monogoto, you can sign up and use the ubidots service to send UDP test messages although note that the message payload needs to be formatted and converted to hex prior to sending - see [Monogoto : Integrate IoT data with Ubidots](https://docs.monogoto.io/developer/cloud-integrations/ubidots)
-
 ```text
 AT#XSOCKET=1,2,0
 AT#XCONNECT="<your_UDP_server_IP_addr>",<port_num>
@@ -226,6 +227,7 @@ AT#XSOCKET=0
 ```
 
 > Expected responses: `#XSOCKET:0,2,17`, `#XCONNECT:1`, `#XSEND:13`, `#XSOCKET:0,"closed"`
+> If you are using Monogoto, you can sign up and use the ubidots service to send UDP test messages although note that the message payload needs to be correctly formatted and converted to hex prior to sending - see [Monogoto : Integrate IoT data with Ubidots](https://docs.monogoto.io/developer/cloud-integrations/ubidots)
 
 ---
 

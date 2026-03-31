@@ -147,8 +147,8 @@ AT+CGMR
 
 ## 10. Acquire GNSS Fix
 
-> **Important:** GNSS must be acquired *before* switching to NTN system mode. Run this sequence first if you want a live GPS fix rather than manually entering coordinates.
-> **Note:** you'll need an external antenna but that will be required for the NTN modem anyway as per above
+- **Important:** GNSS must be acquired *before* switching to NTN system mode. Run this sequence first if you want a live GPS fix rather than manually entering coordinates.
+- **Note:** you'll need an external antenna but that will be required for the NTN modem anyway as per above
 
 ```text
 AT+CFUN=4
@@ -173,10 +173,10 @@ AT#XGNSS=0
 
 ## 11. NTN Connection Sequence
 
-> **Note:** Band n23 = Canada, band n255 = L-band Global, band n256 = S-band Europe (Skylo).
-> For best results with a single patch antenna, consider restricting to band n255 only (`AT%XBANDLOCK=2,,"255"`) given n255 is closest to the L1 and L5 bands used by GNSS
-> Replace `<lat>`, `<lon>`, `<alt>` with coordinates from the GNSS fix above, or enter known static coordinates.
-> Each value must be a separate quoted string.
+- **Note:** Band n23 = Canada, band n255 = L-band Global, band n256 = S-band Europe (Skylo).
+- For best results with a single patch antenna, consider restricting to band n255 only (`AT%XBANDLOCK=2,,"255"`) given n255 is closest to the L1 and L5 bands used by GNSS
+- Replace `<lat>`, `<lon>`, `<alt>` with coordinates from the GNSS fix above, or enter known static coordinates.
+- Each value must be a separate quoted string.
 
 ```text
 AT+CFUN=4
@@ -201,8 +201,8 @@ AT+CFUN=1
 +CEREG: 5,"<tac>","<ci>",14,,,"11100000","00111000"
 ```
 
-> The duration for the attach and registration following the ```AT+CFUN=1``` command can be highly variable given the nature of the signalling path from the UE to the RAN via GEO to the (cloud-hosted) EPC/5G Core...and back
-> FWIW I have observed typical durations of between 50 and 60 secs for this sequence using monogoto aka Skylo aka Viasat-Inmarsat in Northern Europe via I4F4 (Alphasat)
+- The duration for the attach and registration following the ```AT+CFUN=1``` command can be highly variable given the nature of the signalling path from the UE to the RAN via GEO to the (cloud-hosted) EPC/5G Core...and back.
+- FWIW I have observed typical durations of between 50 and 60 secs for this sequence using monogoto aka Skylo aka Viasat-Inmarsat in Northern Europe via I4F4 (Alphasat)
 
 ---
 
@@ -226,8 +226,8 @@ AT#XSEND="Hello Feather"
 AT#XSOCKET=0
 ```
 
-> Expected responses: `#XSOCKET:0,2,17`, `#XCONNECT:1`, `#XSEND:13`, `#XSOCKET:0,"closed"`
-> If you are using Monogoto, you can sign up and use the ubidots service to send UDP test messages although note that the message payload needs to be correctly formatted and converted to hex prior to sending - see [Monogoto : Integrate IoT data with Ubidots](https://docs.monogoto.io/developer/cloud-integrations/ubidots)
+- Expected responses: `#XSOCKET:0,2,17`, `#XCONNECT:1`, `#XSEND:13`, `#XSOCKET:0,"closed"`
+- If you are using Monogoto, you can sign up and use the ubidots service to send UDP test messages although note that the message payload needs to be correctly formatted and converted to hex prior to sending - see [Monogoto : Integrate IoT data with Ubidots](https://docs.monogoto.io/developer/cloud-integrations/ubidots)
 
 ---
 

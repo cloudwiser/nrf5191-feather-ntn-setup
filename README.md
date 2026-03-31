@@ -1,7 +1,7 @@
 # nRF9151 Feather GEO-NB NTN Setup Guide
 
 - This guide covers the complete steps required to go from a new nRF9151 Feather board to a working GEO-NB NTN (Non-Terrestrial Network) environment over the Skylo-Viasat-Inmarsat network using VS Code and the CircuitDojo ncs-serial-modem application.
-- Massive kudos to Jared for designing, developing and supporting what is a perfect, small-form factor, nRF5191-based module for product prototyping
+- Massive kudos to Jared [jaredwolff](https://github.com/jaredwolff) for designing, developing and supporting what is a perfect, small-form factor, nRF5191-based module for product prototyping
 
 ---
 

@@ -34,7 +34,7 @@
 
 ---
 
-## 1. Install the NRF Connect Toolchain and SDK
+## 1. Install the NRF Connect toolchain and SDK
 
 - Install [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop)
 - Open **Toolchain Manager**

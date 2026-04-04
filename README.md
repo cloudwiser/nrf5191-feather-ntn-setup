@@ -16,19 +16,19 @@
 
 ---
 
-## GNSS/GEO-NTN Antenna Selection
+## GNSS/GEO-NTN Operation
 
 - The nRF9151 Feather combines the GNSS and LTE/NTN antenna feeds so selection of a suitable wideband antenna that covers the required bands is required. This invariably needs to include the GNSS L-band, the NTN L and/or S-bands plus any required terrestrial LTE bands
-- This selection is arguably the most critical elememt in your system : the 23dBm transmit power from the NB-IoT UE can severely challenge the link budget for a reliable GEO-NB NTN attach given a range of factors including obscured LoS (line-of-sight) to the GEO spacecraft, the UE latitude and hence the look angle to the GEO spacecraft and also whether the UE is operating in motion or not
+- This selection is arguably the most critical elememt in your system : the 23dBm transmit power from the NB-IoT UE can severely challenge the link budget for a reliable GEO-NB NTN attach given a range of factors including whether the LoS (line-of-sight) to the GEO spacecraft is obscured, the latitude of the UE (and hence the look angle to the GEO spacecraft) and also whether the UE is expected to close the link whilst in motion or not
 - Assuming you are using a Skylo-supported SIM, you will need an antenna that supports the L-band (Global) aka n255 so:
   - DL: 1525–1559 MHz
   - UL: 1626.5–1660.5 MHz
 - ...and/or S-band (Europe) aka n256 so:
   - DL: 2170–2200 MHz
   - UL: 1980–2010 MHz
-- Skylo operate their own RAN and core network but the spectrum, space and ground segment access are provided to Skylo by Viasat-Inmarsat, Ligado and TerreStar for n255 and Echostar Mobile for n256
 - GPS L1 sits at 1575.42 MHz so close to n255 however an antenna that covers 1559–1610 MHz would bring in the other GNSS constellations i.e. GLONASS, Beidou and Galilleo as well. However this assumes Nordic will add support for these GNSS constellations in future versions of the nRF5191 firmware and hardware
 - [TODO]
+- Beyond antenna selection, there are a host of design and operating considerations specific to your use-case such as optimising for battery life, NTN-TN integration, TCP vs UDP vs NIDD, etc. An excellent and highly-recommended paper on these and other relevant topics has been authored by Kyocera AVX on [optimizing IoT devices for GEO NB-NTN hybrid connectivity](https://www.kyocera-avx.com/docs/techinfo/Antennas/Optimizing-IoT-Devices-GEO-NB-NTN-Hybrid-Connectivity.pdf)
 
 ---
 
@@ -267,6 +267,7 @@ AT+CFUN=1
 - [Monogoto NTN NRF9151 Guide](https://docs.monogoto.io/ntn-satellite-networks/ntn-certified-devices/ntn-certified-modules/nordic-nrf9151-satellite-ntn-network)
 - [CircuitDojo nRF9151 Feather docs](https://docs.circuitdojo.com/nrf9151-feather/nrf9151-feather/updating-modem-firmware.html)
 - [Nordic nRF9151 NTN AT Commands v0.4](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-M0mPxGpottOEfcucXOR%2Fuploads%2F5bzFMG17YlF3WpnTCW2r%2Fmfw_nrf9151-ntn_at_commands_v0.4.pdf)
+- [Kyocera AVX Optimizing IoT Devices for GEO NB-NTN Hybrid Connectivity](https://www.kyocera-avx.com/docs/techinfo/Antennas/Optimizing-IoT-Devices-GEO-NB-NTN-Hybrid-Connectivity.pdf)
 
 ---
 

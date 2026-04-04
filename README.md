@@ -18,7 +18,7 @@
 
 ---
 
-## GNSS/GEO-NTN Operation
+## GNSS/GEO-NTN considerations
 
 - The nRF9151 Feather combines the GNSS and LTE/NTN antenna feeds so selection of a suitable wideband antenna that covers the required bands is required. This invariably needs to include the GNSS L-band, the NTN L and/or S-bands plus any required terrestrial LTE bands
 - This selection is arguably the most critical elememt in your system : the 23dBm transmit power from the NB-IoT UE can severely challenge the link budget for a reliable GEO-NB NTN attach given a range of factors including whether the LoS (line-of-sight) to the GEO spacecraft is obscured, the latitude of the UE (and hence the look angle to the GEO spacecraft) and also whether the UE is expected to close the link whilst in motion or not
@@ -34,7 +34,7 @@
 
 ---
 
-## 1. Install NRF Connect Toolchain and SDK
+## 1. Install the NRF Connect Toolchain and SDK
 
 - Install [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop)
 - Open **Toolchain Manager**
@@ -44,7 +44,7 @@
 
 ---
 
-## 2. Build the Modem Updater
+## 2. Build the modem updater
 
 ```bash
 cd /<path_to>/GitHub
@@ -53,7 +53,7 @@ cargo install --git https://github.com/circuitdojo/modem_updater.git
 
 ---
 
-## 3. Flash NTN Firmware
+## 3. Flash the NTN firmware
 
 Download `mfw_nrf9151-ntn_1.0.0-1.alpha.zip` from [Nordic's website](https://www.nordicsemi.com/Products/Development-hardware/nRF9151-SMA-DK/Download#infotabs) under **nRF9151 SiP NTN firmware**.
 
@@ -66,7 +66,7 @@ updater verify /<path_to>/Downloads/mfw_nrf9151-ntn_1.0.0-1.alpha.zip
 
 ---
 
-## 4. Clone and initialise the ncs-serial-modem Workspace
+## 4. Clone and initialise the ncs-serial-modem workspace
 
 ```bash
 cd /<path_to>/ncs
@@ -81,7 +81,7 @@ west update
 
 ---
 
-## 5. Configure VS Code Board Roots
+## 5. Configure VS Code board roots
 
 ```bash
 mkdir -p /<path_to>/ncs/ncs-serial-modem/.vscode
@@ -98,7 +98,7 @@ EOF
 
 ---
 
-## 6. Build the App in VS Code
+## 6. Build the serial modem app in VS Code
 
 - Select `Open an exisitng application` in the VSC nRF Connect Welcome panel
 - Select`/<path_to>/ncs/ncs-serial-modem/app` in the folder dialog
@@ -113,7 +113,7 @@ EOF
 
 ---
 
-## 7. Flash the App
+## 7. Flash the app
 
 ```bash
 probe-rs download --chip nRF9151_xxAA --binary-format hex \
@@ -125,7 +125,7 @@ probe-rs reset --chip nRF9151_xxAA
 
 ---
 
-## 8. Connect a Serial Terminal
+## 8. Connect a serial terminal
 
 > I tend to switch between `tio` and the Serial Terminal tool in the `nRF Connect Desktop` for AT comms. If you are using `tio` or similar, then you may need to add a local echo to see your typed commands. On `tio` this is with the `--local-echo` parameter:
 
@@ -137,7 +137,7 @@ tio --local-echo /dev/ttyACM0
 
 ---
 
-## 9. Verify NTN Firmware
+## 9. Verify the NTN firmware
 
 ```text
 AT+CGMR
@@ -147,7 +147,7 @@ AT+CGMR
 
 ---
 
-## 10. Acquire GNSS Fix
+## 10. Acquire a GNSS fix
 
 - **Important:** GNSS must be acquired *before* switching to NTN system mode. Run this sequence first if you want a live GPS fix rather than manually entering coordinates.
 - **Note:** you'll need an external antenna but that will be required for the NTN modem anyway as per above
@@ -173,7 +173,7 @@ AT#XGNSS=0
 
 ---
 
-## 11. NTN Connection Sequence
+## 11. Execute the NTN connection sequence
 
 - **Note:** Band n23 = Canada, band n255 = L-band Global, band n256 = S-band Europe (Skylo).
 - For best results with a single patch antenna, consider restricting to band n255 only (`AT%XBANDLOCK=2,,"255"`) given n255 is closest to the L1 and L5 bands used by GNSS
@@ -208,7 +208,7 @@ AT+CFUN=1
 
 ---
 
-## 12. Monitor Connection Status
+## 12. Monitor the NTN connection status
 
 ```text
 AT+CESQ
@@ -219,7 +219,7 @@ AT%XMONITOR
 
 ---
 
-## 13. Send UDP Test Payload
+## 13. Send a UDP test payload
 
 ```text
 AT#XSOCKET=1,2,0
@@ -233,7 +233,7 @@ AT#XSOCKET=0
 
 ---
 
-## 14. Reset Device
+## 14. Reset the Feather device
 
 ```text
 AT#XRESET
@@ -243,7 +243,7 @@ AT#XRESET
 
 ---
 
-## 15. Switch Back to Standard LTE (When Needed)
+## 15. Switch back to standard LTE (if required)
 
 ```text
 AT+CFUN=0
@@ -253,7 +253,7 @@ AT+CFUN=1
 
 ---
 
-## 16. AT Command Observations
+## 16. AT command observations
 
 - For some reason `AT+CPIN?` returns ERROR — possibly due to lack of correct configuration
 - As mentiioned `AT+CFUN=15` returns ERROR — use `AT#XRESET` instead
@@ -262,7 +262,7 @@ AT+CFUN=1
 
 ---
 
-## Reference Links
+## References
 
 - [CircuitDojo nRF9151 Feather](https://docs.circuitdojo.com/nrf9151-feather/overview.html)
 - [CircuitDojo ncs-serial-modem](https://github.com/circuitdojo/ncs-serial-modem)

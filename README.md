@@ -3,6 +3,7 @@
 <p align="center"><img src="https://docs.circuitdojo.com/nrf9151-feather/img/nRF9151_Feather.png" alt="nRF9151 Feather" width="25%"></p>
 
 - This guide covers the complete steps required to go from a new nRF9151 Feather board to a working GEO-NB NTN (Non-Terrestrial Network) environment over the Skylo-Viasat-Inmarsat network using VS Code and the CircuitDojo ncs-serial-modem application.
+- The below was carried out on an Ubuntu 24.04 system so caveat emptor if you are running on Windows or macOS system
 - Massive kudos to [jaredwolff](https://github.com/jaredwolff) for designing, developing and supporting what is a perfect, small-form factor, nRF5191-based module for product prototyping
 
 ---

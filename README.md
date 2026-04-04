@@ -1,5 +1,7 @@
 # nRF9151 Feather GEO-NB NTN Setup Guide
 
+<p align="center"><img src="https://docs.circuitdojo.com/nrf9151-feather/img/nRF9151_Feather.png" alt="nRF9151 Feather" width="25%"></p>
+
 - This guide covers the complete steps required to go from a new nRF9151 Feather board to a working GEO-NB NTN (Non-Terrestrial Network) environment over the Skylo-Viasat-Inmarsat network using VS Code and the CircuitDojo ncs-serial-modem application.
 - Massive kudos to [jaredwolff](https://github.com/jaredwolff) for designing, developing and supporting what is a perfect, small-form factor, nRF5191-based module for product prototyping
 
@@ -262,10 +264,10 @@ AT+CFUN=1
 
 ## Reference Links
 
+- [CircuitDojo nRF9151 Feather](https://docs.circuitdojo.com/nrf9151-feather/overview.html)
 - [CircuitDojo ncs-serial-modem](https://github.com/circuitdojo/ncs-serial-modem)
 - [CircuitDojo modem updater](https://github.com/circuitdojo/modem_updater)
 - [Monogoto NTN NRF9151 Guide](https://docs.monogoto.io/ntn-satellite-networks/ntn-certified-devices/ntn-certified-modules/nordic-nrf9151-satellite-ntn-network)
-- [CircuitDojo nRF9151 Feather docs](https://docs.circuitdojo.com/nrf9151-feather/nrf9151-feather/updating-modem-firmware.html)
 - [Nordic nRF9151 NTN AT Commands v0.4](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-M0mPxGpottOEfcucXOR%2Fuploads%2F5bzFMG17YlF3WpnTCW2r%2Fmfw_nrf9151-ntn_at_commands_v0.4.pdf)
 - [Kyocera AVX Optimizing IoT Devices for GEO NB-NTN Hybrid Connectivity](https://www.kyocera-avx.com/docs/techinfo/Antennas/Optimizing-IoT-Devices-GEO-NB-NTN-Hybrid-Connectivity.pdf)
 

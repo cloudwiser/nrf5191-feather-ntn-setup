@@ -230,7 +230,7 @@ AT#XSOCKET=0
 ```
 
 - Expected responses: `#XSOCKET:0,2,17`, `#XCONNECT:1`, `#XSEND:13`, `#XSOCKET:0,"closed"`
-- If you are using Monogoto, you can sign up and use the ubidots service to send UDP test messages although note that the message payload needs to be correctly formatted and converted to hex prior to sending - see [Monogoto : Integrate IoT data with Ubidots](https://docs.monogoto.io/developer/cloud-integrations/ubidots)
+- If you are using Monogoto, you can sign up and use the [ubidots](https://ubidots.com/) service to send UDP test messages although note that the message payload needs to be correctly formatted and converted to hex prior to sending - see [Monogoto : Integrate IoT data with Ubidots](https://docs.monogoto.io/developer/cloud-integrations/ubidots)
 
 ---
 

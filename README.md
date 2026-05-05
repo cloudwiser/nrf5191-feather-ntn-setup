@@ -67,9 +67,10 @@ updater verify /<path_to>/Downloads/mfw_nrf9151-ntn_1.0.0-1.alpha.zip
 
 ---
 
-## 4. Clone and initialise the ncs-serial-modem workspace
+## 4. Install west & ncs-serial-modem and initialise the workspace
 
 ```bash
+pip3 install --user -U west
 cd /<path_to>/ncs
 git clone https://github.com/circuitdojo/ncs-serial-modem.git
 cd ncs-serial-modem
